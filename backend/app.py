@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 
 #Bibliotecas das rotas ----------
-from main import app
+
 from flask import render_template, jsonify, request, send_file
 from fpdf import FPDF
 import io
@@ -11,6 +11,10 @@ app = Flask(__name__)
 CORS(app)
 
 #Rotas ----------------------------
+@app.route("/")
+def homepage():
+    return "Página aqui"
+
 @app.route("/tarefa", methods=["GET"])
 def pegar_tarefa():
     #Pesquisar no banco de dados
