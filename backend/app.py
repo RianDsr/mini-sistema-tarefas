@@ -7,8 +7,50 @@ from flask import render_template, jsonify, request, send_file
 from fpdf import FPDF
 import io
 
+#Biblioteca do banco ----------
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+
 app = Flask(__name__)
 CORS(app)
+
+# --- ALTERAÇÃO PRINCIPAL: Configuração do Banco de Dados PostgreSQL ---
+# O formato é: "postgresql://usuario:senha@host:porta/nome_do_banco"
+# Substitua com suas credenciais reais do PostgreSQL.
+DB_USER = 'seu_usuario_aqui'
+DB_PASSWORD = 'sua_senha_aqui'
+DB_HOST = 'localhost' # ou o host onde seu DB está
+DB_PORT = '5432'      # porta padrão do Postgres
+DB_NAME = 'tarefas_db' # o banco que você criou
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+class Task(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(250), nullable=True)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'created_at': self.created_at.isoformat()
+        }
+
+# --- Bloco para criar a tabela (se não existir) ---
+with app.app_context():
+    db.create_all()
+
+# --- Rotas da API (NÃO MUDAM NADA AQUI!) ---
+# Todo o código das rotas que você já viu continua exatamente o mesmo,
+# pois ele interage com o `db`, e o SQLAlchemy se encarrega de "traduzir"
+# os comandos para o dialeto do PostgreSQL.
+
 
 #Rotas ----------------------------
 @app.route("/")
