@@ -104,3 +104,9 @@ ul {
 .description-input {
   resize: vertical; /* permite redimensionar verticalmente */
 }
+
+.create-pdf-container {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}

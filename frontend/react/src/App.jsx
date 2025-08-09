@@ -1,5 +1,6 @@
 import "./App.css";
 import AddTasks from "./components/AddTasks";
+import CreatePDF from "./components/CreatePDF";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import TasksList from "./components/TasksList";
@@ -28,6 +29,9 @@ function App() {
           <div className="main-layout">
             <AddTasks />
             <TasksList tasks={tasks} />
+          </div>
+          <div className="create-pdf-container">
+            <CreatePDF />
           </div>
           <Footer />
         </div>
