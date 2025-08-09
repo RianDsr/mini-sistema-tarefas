@@ -24,8 +24,8 @@ function AddTasks() {
   };
 
   return (
-    <div className="Bloco">
-      <h2 className="HeaderText">Add Tasks Component</h2>
+    <div className="add-tasks">
+      <h2 className="HeaderText">Add Tasks</h2>
       <form className="HeaderText" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -36,7 +36,10 @@ function AddTasks() {
         />
         <br />
         <input
-          type="text"
+          rows="4"
+          cols="50"
+          className="description-input"
+          type="textarea"
           placeholder="Task Description"
           value={taskDescription}
           onChange={(e) => setTaskDescription(e.target.value)}
