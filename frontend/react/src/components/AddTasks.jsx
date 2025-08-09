@@ -43,8 +43,8 @@ function AddTasks() {
           required
         />
         <input
+          className="date-input"
           type="date"
-          placeholder="Task Description"
           value={taskDate}
           onChange={(e) => setTaskDate(e.target.value)}
           required

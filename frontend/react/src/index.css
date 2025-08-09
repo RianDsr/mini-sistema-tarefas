@@ -1,4 +1,5 @@
 body {
   background-color: azure;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
 }

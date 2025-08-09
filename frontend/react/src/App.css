@@ -18,7 +18,7 @@ header {
   margin: 20px;
   padding: 20px;
   background-color: #f0f0f0;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 
 footer {
@@ -36,7 +36,7 @@ input {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 button {
@@ -57,4 +57,9 @@ button:disabled {
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+.date-input {
+  font-weight: normal;
+  font-family: "Montserrat", sans-serif;
 }
