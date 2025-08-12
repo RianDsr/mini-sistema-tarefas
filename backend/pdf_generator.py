@@ -19,11 +19,11 @@ def gerar_pdf(tarefas):
     pdf.set_font('Arial', '', 12)
     for tarefa in tarefas:
         # Primeira célula
-        pdf.multi_cell(60, 10, tarefa.title.encode('latin-1', 'replace').decode('latin-1'), border=1)
+        pdf.multi_cell(60, 10, tarefa["titulo"].encode('latin-1', 'replace').decode('latin-1'), border=1)
         # Segunda célula (mesma linha)
         y_pos = pdf.get_y()
         pdf.set_xy(70, y_pos - 10)
-        pdf.multi_cell(130, 10, tarefa.description.encode('latin-1', 'replace').decode('latin-1'), border=1)
+        pdf.multi_cell(130, 10, tarefa["descricao"].encode('latin-1', 'replace').decode('latin-1'), border=1)
 
     # Criar buffer de memória
     pdf_buffer = io.BytesIO(pdf.output(dest='S').encode('latin-1'))

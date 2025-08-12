@@ -4,19 +4,20 @@ import axios from "axios";
 function AddTasks() {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const [taskDate, setTaskDate] = useState("");
+  /*const [taskDate, setTaskDate] = useState("");*/
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post("http://127.0.0.1:5000/tarefas", {
-        name: taskName,
-        description: taskDescription,
-        date: taskDate,
+        titulo: taskName,
+        descricao: taskDescription,
+        /*date: taskDate,*/
       });
       setTaskName("");
       setTaskDescription("");
-      setTaskDate("");
+
+      /*setTaskDate("");*/
       alert("Tarefa adicionada com sucesso!");
     } catch (error) {
       console.error("Erro ao adicionar tarefa:", error);
@@ -43,13 +44,6 @@ function AddTasks() {
           placeholder="Task Description"
           value={taskDescription}
           onChange={(e) => setTaskDescription(e.target.value)}
-          required
-        />
-        <input
-          className="date-input"
-          type="date"
-          value={taskDate}
-          onChange={(e) => setTaskDate(e.target.value)}
           required
         />
         <br />

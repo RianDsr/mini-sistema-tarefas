@@ -9,7 +9,6 @@ function TasksList({ tasks }) {
           key={task.id}
           name={task.name}
           description={task.description}
-          date={task.date}
         />
       ))}
     </div>

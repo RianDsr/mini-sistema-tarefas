@@ -22,21 +22,17 @@ function App() {
   ];
 
   return (
-    <>
-      <body>
-        <div className="App">
-          <Header />
-          <div className="main-layout">
-            <AddTasks />
-            <TasksList tasks={tasks} />
-          </div>
-          <div className="create-pdf-container">
-            <CreatePDF />
-          </div>
-          <Footer />
-        </div>
-      </body>
-    </>
+    <div className="App">
+      <Header />
+      <div className="main-layout">
+        <AddTasks />
+        <TasksList tasks={tasks} />
+      </div>
+      <div className="create-pdf-container">
+        <CreatePDF />
+      </div>
+      <Footer />
+    </div>
   );
 }
 
